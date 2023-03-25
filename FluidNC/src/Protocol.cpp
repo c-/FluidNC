@@ -992,6 +992,22 @@ static void protocol_do_accessory_override(void* type) {
                 report_ovr_counter = 0;  // Set to report change immediately
             }
             break;
+        case AccessoryOverride::UserOutput0Toggle:
+		      config->_userOutputs->toggleDigital(0);
+				report_ovr_counter = 0;  // Set to report change immediately
+				break;
+        case AccessoryOverride::UserOutput1Toggle:
+		      config->_userOutputs->toggleDigital(1);
+				report_ovr_counter = 0;  // Set to report change immediately
+				break;
+        case AccessoryOverride::UserOutput2Toggle:
+		      config->_userOutputs->toggleDigital(2);
+				report_ovr_counter = 0;  // Set to report change immediately
+				break;
+        case AccessoryOverride::UserOutput3Toggle:
+		      config->_userOutputs->toggleDigital(3);
+				report_ovr_counter = 0;  // Set to report change immediately
+				break;
         default:
             break;
     }

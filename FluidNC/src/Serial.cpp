@@ -161,6 +161,18 @@ void execute_realtime_command(Cmd command, Channel& channel) {
         case Cmd::CoolantMistOvrToggle:
             protocol_send_event(&accessoryOverrideEvent, AccessoryOverride::MistToggle);
             break;
+        case Cmd::UserOutput0OvrToggle:
+            protocol_send_event(&accessoryOverrideEvent, AccessoryOverride::UserOutput0Toggle);
+            break;
+        case Cmd::UserOutput1OvrToggle:
+            protocol_send_event(&accessoryOverrideEvent, AccessoryOverride::UserOutput1Toggle);
+            break;
+        case Cmd::UserOutput2OvrToggle:
+            protocol_send_event(&accessoryOverrideEvent, AccessoryOverride::UserOutput2Toggle);
+            break;
+        case Cmd::UserOutput3OvrToggle:
+            protocol_send_event(&accessoryOverrideEvent, AccessoryOverride::UserOutput3Toggle);
+            break;
         case Cmd::Macro0:
             protocol_send_event(&macro0Event);
             break;

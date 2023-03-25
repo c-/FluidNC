@@ -63,6 +63,10 @@ enum class Cmd : uint8_t {
     SpindleOvrStop        = 0x9E,
     CoolantFloodOvrToggle = 0xA0,
     CoolantMistOvrToggle  = 0xA1,
+    UserOutput0OvrToggle  = 0xA2,
+    UserOutput1OvrToggle  = 0xA3,
+    UserOutput2OvrToggle  = 0xA4,
+    UserOutput3OvrToggle  = 0xA5,
 };
 
 bool is_realtime_command(uint8_t data);

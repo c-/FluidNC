@@ -11,6 +11,7 @@
 namespace Machine {
     class UserOutputs : public Configuration::Configurable {
         PwmPin*  _pwm[MaxUserAnalogPin];
+        bool     _current_state[MaxUserDigitalPin];
         uint32_t _current_value[MaxUserAnalogPin];
         uint32_t _denominator[MaxUserAnalogPin];
 
@@ -26,6 +27,7 @@ namespace Machine {
 
         void group(Configuration::HandlerBase& handler) override;
         bool setDigital(size_t io_num, bool isOn);
+        bool toggleDigital(size_t io_num);
         bool setAnalogPercent(size_t io_num, float percent);
 
         ~UserOutputs();

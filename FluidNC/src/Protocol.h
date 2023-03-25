@@ -76,6 +76,10 @@ enum AccessoryOverride {
     SpindleStopOvr = 1,
     FloodToggle    = 2,
     MistToggle     = 3,
+    UserOutput0Toggle = 4,
+    UserOutput1Toggle = 5,
+    UserOutput2Toggle = 6,
+    UserOutput3Toggle = 7,
 };
 
 extern ArgEvent feedOverrideEvent;

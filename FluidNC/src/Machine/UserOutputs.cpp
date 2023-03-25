@@ -20,7 +20,7 @@ namespace Machine {
             if (pin.defined()) {
                 pin.setAttr(Pin::Attr::Output);
                 pin.off();
-                log_info("User Digital Output:" << i << " on Pin:" << pin.name());
+                _current_state[i] = false;
             }
         }
         // determine the highest resolution (number of precision bits) allowed by frequency
@@ -49,7 +49,14 @@ namespace Machine {
         if (pin.undefined()) {
             return !isOn;  // It is okay to turn off an undefined pin, for safety
         }
+        log_info("User Digital pin:" << io_num << " set to " << isOn);
         pin.synchronousWrite(isOn);
+        _current_state[io_num] = isOn;
+        return true;
+    }
+
+    bool UserOutputs::toggleDigital(size_t io_num) {
+		  setDigital(io_num, !_current_state[io_num]);
         return true;
     }
 

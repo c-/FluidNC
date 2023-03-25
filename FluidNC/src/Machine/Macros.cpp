@@ -39,6 +39,10 @@ std::map<std::string, Cmd> overrideCodes = {
     { "ss", Cmd::SpindleOvrStop },
     { "ft", Cmd::CoolantFloodOvrToggle },
     { "mt", Cmd::CoolantMistOvrToggle },
+    { "0t", Cmd::UserOutput0OvrToggle },
+    { "1t", Cmd::UserOutput1OvrToggle },
+    { "2t", Cmd::UserOutput2OvrToggle },
+    { "3t", Cmd::UserOutput3OvrToggle },
 };
 // clang-format on
 
