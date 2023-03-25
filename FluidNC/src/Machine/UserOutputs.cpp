@@ -20,6 +20,7 @@ namespace Machine {
             if (pin.defined()) {
                 pin.setAttr(Pin::Attr::Output);
                 pin.off();
+					 log_info("User Digital Output:" << i << " on Pin:" << pin.name());
                 _current_state[i] = false;
             }
         }

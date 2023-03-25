@@ -7,8 +7,10 @@
 #include "src/Machine/MachineConfig.h"  // config
 
 void MacroEvent::run(void* arg) {
-    if (sys.state != State::Idle) {
-        log_error("Macro can only be used in idle state");
+    if (sys.state != State::Idle
+	 	&& sys.state != State::Hold
+	 ) {
+        log_error("Macro can only be used in idle/hold states");
         return;
     }
     log_debug("Macro " << _num);
@@ -81,7 +83,12 @@ bool Macros::run_macro(size_t index) {
                         log_error("Bad #xx realtime escape in macro");
                         return false;
                     }
-                    WebUI::inputBuffer.push(static_cast<uint8_t>(cmd));
+						  if( sys.state == State::Hold ) {
+						     // HACK: this is a terrible idea
+							  execute_realtime_command(cmd,WebUI::inputBuffer);
+						  } else {
+							  WebUI::inputBuffer.push(static_cast<uint8_t>(cmd));
+						  }
                 }
                 i += 3;
                 break;
